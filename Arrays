@@ -22,3 +22,79 @@ class Solution
     
 
 };
+
+
+//probelem3//
+class Solution{
+    private:
+    
+    int merge(int arr[], int s, int mid, int e){
+        int i=s;
+        int j=mid+1;
+        int k=0;
+        
+        int newarr[e-s+1];
+        
+        while(i<=mid && j<=e){
+            if (arr[i]>arr[j]){
+                newarr[k]= arr[j];
+                k++;
+                j++;
+            }
+            
+            else if (arr[i]<arr[j]){
+                newarr[k]=arr[i];
+                i++;
+                k++;
+            }
+        }
+        
+        if (i>mid){
+            while (j<=e){
+                newarr[k] = arr[j];
+                j++;
+                k++;
+                
+            }
+        }
+        
+        else{
+            while(i<=mid){
+                newarr[k] = arr[i];
+                i++;
+                k++;
+            }
+        }
+        
+        int f=0;
+         for (int i=s; i<=e; i++){
+             arr[i]=newarr[f];
+             f++;
+         }
+        }
+    
+    int mergeSort(int arr[], int s, int e){
+        
+        if (s<e){
+        int mid = s + (e-s)/2;
+        
+        mergeSort(arr,s,mid);
+        mergeSort(arr,mid+1,e);
+        merge(arr,s,mid,e);
+        
+        
+        }
+    }
+   
+    public:
+    // arr : given array
+    // l : starting index of the array i.e 0
+    // r : ending index of the array i.e size-1
+    // k : find kth smallest element and return using this functio
+    
+    
+    int kthSmallest(int arr[], int l, int r, int k) {
+        mergeSort(arr,l,r);
+        return arr[k-1];
+    }
+}
