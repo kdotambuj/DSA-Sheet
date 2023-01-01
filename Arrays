@@ -1,4 +1,4 @@
-//Problem 2//
+//Problem 2//-------------------------------------
 class Solution
 {
    public:
@@ -24,7 +24,7 @@ class Solution
 };
 
 
-//probelem3//
+//probelem3//---------------------------------------------
 class Solution{
     private:
     
@@ -98,3 +98,35 @@ class Solution{
         return arr[k-1];
     }
 }
+
+
+//probelem4//--------------------------------------------------------------
+
+public:
+    void sort012(int a[], int n)
+    {
+        int i=0;
+        int k=n-1;
+        int j=0;
+        
+        while(i<=k)
+        {
+            if (a[i]==1)
+            {
+                i++;
+            }
+            
+            else if (a[i]==0)
+            {
+                swap(a[i], a[j]);
+                i++;
+                j++;
+            }
+            
+            else 
+            {
+                swap (a[i], a[k]);
+                k--;
+            }
+        }
+    }
